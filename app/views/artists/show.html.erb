@@ -1,59 +1,52 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Name:</b>
-  <%= @artist.name %>
-</p>
+<div id="left-column">
+  <!-- Artist photo -->
+  <p>
+    <% if @artist.foto %>
+      <%= image_tag @artist.foto %>
+    <% end %>
+  </p>
 
-<p>
-  <b>Business name:</b>
-  <%= @artist.business_name %>
-</p>
+  <!-- Artist handcrafts -->
+  <p>
+    <% @artist.handcrafts.each do |h| %>
+      <%= h.name %>
+    <% end %>
+  </p>
+</div>
 
-<p>
-  <b>Address:</b>
-  <%= @artist.address %>
-</p>
+<div id="right-column">
+  <!-- Artist biography -->
+  <p>
+    <%= @artist.biography %>
+  </p>
 
-<p>
-  <b>Phone:</b>
-  <%= @artist.phone %>
-</p>
+  <!-- Techniques, manufacturing techniques -->
+  <p>
+    <% if @artist.techniques %>
+      <ul>
+	<% @artist.techniques.each do |t| %>
+	  <li><%= t.name %></li>
+        <% end %>
+      </ul>
+    <% end %>
 
-<p>
-  <b>Email:</b>
-  <%= @artist.email %>
-</p>
+    <% if @artist.manufacturing_techniques %>
+      <ul>
+	<% @artist.manufacturing_techniques.each do |mt| %>
+	  <li><%= mt.name %></li>
+        <% end %>
+      </ul>
+    <% end %>
+  </p>
 
-<p>
-  <b>Foto:</b>
-  <%= @artist.foto %>
-</p>
-
-<p>
-  <b>Latitude:</b>
-  <%= @artist.latitude %>
-</p>
-
-<p>
-  <b>Longitud:</b>
-  <%= @artist.longitud %>
-</p>
-
-<p>
-  <b>Location:</b>
-  <%= @artist.location %>
-</p>
-
-<p>
-  <b>Location:</b>
-  <%= @artist.location %>
-</p>
-
-<p>
-  <b>Biography:</b>
-  <%= @artist.biography %>
-</p>
+  <!-- Geolocation -->
+  <p>
+    <%= @artist.latitude %>,
+    <%= @artist.longitude %>
+  </p>
+</div>
 
 
 <%= link_to 'Edit', edit_artist_path(@artist) %> |

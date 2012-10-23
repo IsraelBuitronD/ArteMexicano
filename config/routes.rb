@@ -1,4 +1,20 @@
 ArteMexicano::Application.routes.draw do
+  resources :handcrafts
+
+  resources :artists
+
+  resources :photos
+
+  resources :cultural_backgrounds
+
+  resources :manufacturing_techniques
+
+  resources :techniques
+
+  resources :materials
+
+  resources :states
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

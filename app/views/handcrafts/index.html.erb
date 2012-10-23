@@ -1,0 +1,39 @@
+<h1>Listing handcrafts</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Weight</th>
+    <th>Height</th>
+    <th>Width</th>
+    <th>Depth</th>
+    <th>Highlight</th>
+    <th>Status</th>
+    <th>Artist</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @handcrafts.each do |handcraft| %>
+  <tr>
+    <td><%= handcraft.name %></td>
+    <td><%= handcraft.description %></td>
+    <td><%= handcraft.weight %></td>
+    <td><%= handcraft.height %></td>
+    <td><%= handcraft.width %></td>
+    <td><%= handcraft.depth %></td>
+    <td><%= handcraft.highlight %></td>
+    <td><%= handcraft.status %></td>
+    <td><%= handcraft.artist_id %></td>
+    <td><%= link_to 'Show', handcraft %></td>
+    <td><%= link_to 'Edit', edit_handcraft_path(handcraft) %></td>
+    <td><%= link_to 'Destroy', handcraft, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Handcraft', new_handcraft_path %>

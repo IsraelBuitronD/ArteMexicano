@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  description: MyString
+  weight: 9.99
+  height: 9.99
+  width: 9.99
+  depth: 9.99
+  highlight: false
+  status: 1
+  artist_id: 1
+
+two:
+  name: MyString
+  description: MyString
+  weight: 9.99
+  height: 9.99
+  width: 9.99
+  depth: 9.99
+  highlight: false
+  status: 1
+  artist_id: 1

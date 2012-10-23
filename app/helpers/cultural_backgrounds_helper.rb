@@ -1,0 +1,2 @@
+module CulturalBackgroundsHelper
+end

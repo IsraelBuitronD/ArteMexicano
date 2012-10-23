@@ -1,0 +1,2 @@
+module HandcraftsHelper
+end

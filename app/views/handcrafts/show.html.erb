@@ -1,0 +1,50 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @handcraft.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @handcraft.description %>
+</p>
+
+<p>
+  <b>Weight:</b>
+  <%= @handcraft.weight %>
+</p>
+
+<p>
+  <b>Height:</b>
+  <%= @handcraft.height %>
+</p>
+
+<p>
+  <b>Width:</b>
+  <%= @handcraft.width %>
+</p>
+
+<p>
+  <b>Depth:</b>
+  <%= @handcraft.depth %>
+</p>
+
+<p>
+  <b>Highlight:</b>
+  <%= @handcraft.highlight %>
+</p>
+
+<p>
+  <b>Status:</b>
+  <%= @handcraft.status %>
+</p>
+
+<p>
+  <b>Artist:</b>
+  <%= @handcraft.artist_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_handcraft_path(@handcraft) %> |
+<%= link_to 'Back', handcrafts_path %>

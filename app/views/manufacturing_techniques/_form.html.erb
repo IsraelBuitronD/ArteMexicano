@@ -1,0 +1,25 @@
+<%= form_for(@manufacturing_technique) do |f| %>
+  <% if @manufacturing_technique.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@manufacturing_technique.errors.count, "error") %> prohibited this manufacturing_technique from being saved:</h2>
+
+      <ul>
+      <% @manufacturing_technique.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_field :description %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

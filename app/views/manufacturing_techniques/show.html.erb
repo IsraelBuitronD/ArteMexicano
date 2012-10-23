@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @manufacturing_technique.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @manufacturing_technique.description %>
+</p>
+
+
+<%= link_to 'Edit', edit_manufacturing_technique_path(@manufacturing_technique) %> |
+<%= link_to 'Back', manufacturing_techniques_path %>

@@ -1,0 +1,29 @@
+<h1>Listing cultural_backgrounds</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Start date</th>
+    <th>End date</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @cultural_backgrounds.each do |cultural_background| %>
+  <tr>
+    <td><%= cultural_background.name %></td>
+    <td><%= cultural_background.description %></td>
+    <td><%= cultural_background.start_date %></td>
+    <td><%= cultural_background.end_date %></td>
+    <td><%= link_to 'Show', cultural_background %></td>
+    <td><%= link_to 'Edit', edit_cultural_background_path(cultural_background) %></td>
+    <td><%= link_to 'Destroy', cultural_background, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Cultural background', new_cultural_background_path %>

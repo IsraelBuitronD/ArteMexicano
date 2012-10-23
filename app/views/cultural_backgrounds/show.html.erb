@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @cultural_background.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @cultural_background.description %>
+</p>
+
+<p>
+  <b>Start date:</b>
+  <%= @cultural_background.start_date %>
+</p>
+
+<p>
+  <b>End date:</b>
+  <%= @cultural_background.end_date %>
+</p>
+
+
+<%= link_to 'Edit', edit_cultural_background_path(@cultural_background) %> |
+<%= link_to 'Back', cultural_backgrounds_path %>

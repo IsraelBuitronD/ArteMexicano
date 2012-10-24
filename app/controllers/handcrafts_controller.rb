@@ -2,7 +2,11 @@ class HandcraftsController < ApplicationController
   # GET /handcrafts
   # GET /handcrafts.json
   def index
-    @handcrafts = Handcraft.all
+    if params[:tag]
+      @handcrafts = Handcraft.tagged_with(params[:tag])
+    else
+      @handcrafts = Handcraft.all
+    end
 
     respond_to do |format|
       format.html # index.html.erb

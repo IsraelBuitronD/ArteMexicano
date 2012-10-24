@@ -1,6 +1,4 @@
 ArteMexicano::Application.routes.draw do
-  resources :tags
-
   resources :handcrafts
 
   resources :artists

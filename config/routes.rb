@@ -1,5 +1,7 @@
 ArteMexicano::Application.routes.draw do
 
+  get "home/index"
+
   get 'tags/:tag', to: 'handcrafts#index', as: :tag
 
   resources :handcrafts

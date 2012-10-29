@@ -2,11 +2,15 @@ class ArtistsController < ApplicationController
   # GET /artists
   # GET /artists.json
   def index
-    @artists = Artist.all
+    if params[:term]
+      @artists = Artist.where("name LIKE ?", "%#{params[:term]}%").select(['name', 'id']).order(:name)
+    else
+      @artists = Artist.all
+    end
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @artists }
+      format.json { render json: @artists.map(&:name) }
     end
   end
 

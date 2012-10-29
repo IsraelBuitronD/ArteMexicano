@@ -46,13 +46,17 @@
 </p>
 
 <p>
-  <b>Location:</b>
-  <%= @artist.location %>
+  <b>Biography:</b>
+  <%= @artist.biography %>
 </p>
 
 <p>
-  <b>Biography:</b>
-  <%= @artist.biography %>
+  <b>Techniques:</b>
+  <ul>
+  <% @artist.techniques.each do |t| %>
+  <li><%= t.name %></li>
+  <% end %>
+  </ul>
 </p>
 
 

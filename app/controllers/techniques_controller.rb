@@ -2,11 +2,15 @@ class TechniquesController < ApplicationController
   # GET /techniques
   # GET /techniques.json
   def index
-    @techniques = Technique.all
+    if params[:q]
+      @techniques = Technique.where("name LIKE ?", "%#{params[:q]}%").select(['name', 'id']).order(:name)
+    else
+      @techniques = Technique.all
+    end
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @techniques }
+      format.json { render json: @techniques.map(&:attributes) }
     end
   end
 

@@ -1,5 +1,6 @@
 class Handcraft < ActiveRecord::Base
-  attr_accessible :artist_id, :artist_name, :depth, :description, :height, :highlight, :name, :status, :weight, :width, :tag_list
+  attr_accessible :artist_id, :artist_name, :depth, :description, :height, :highlight, :name, :status, :weight, :width, :tag_list, :techniques_tokens, :materials_tokens, :manufacturing_techniques_tokens
+  attr_reader :techniques_tokens, :materials_tokens, :manufacturing_techniques_tokens
 
   acts_as_taggable
 
@@ -24,5 +25,17 @@ class Handcraft < ActiveRecord::Base
 
   def artist_name=(name)
     self.artist = Artist.find_by_name(name) if name
+  end
+
+  def techniques_tokens=(ids)
+    self.technique_ids = ids.split(',')
+  end
+
+  def materials_tokens=(ids)
+    self.material_ids = ids.split(',')
+  end
+
+  def manufacturing_techniques_tokens=(ids)
+    self.manufacturing_technique_ids = ids.split(',')
   end
 end

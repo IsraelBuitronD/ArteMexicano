@@ -2,11 +2,15 @@ class ManufacturingTechniquesController < ApplicationController
   # GET /manufacturing_techniques
   # GET /manufacturing_techniques.json
   def index
-    @manufacturing_techniques = ManufacturingTechnique.all
+    if params[:q]
+      @manufacturing_techniques = ManufacturingTechnique.where("name LIKE ?", "%#{params[:q]}%").select(['name', 'id']).order(:name)
+    else
+      @manufacturing_techniques = ManufacturingTechnique.all
+    end
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @manufacturing_techniques }
+      format.json { render json: @manufacturing_techniques.map(&:attributes) }
     end
   end
 

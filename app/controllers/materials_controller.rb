@@ -2,11 +2,15 @@ class MaterialsController < ApplicationController
   # GET /materials
   # GET /materials.json
   def index
-    @materials = Material.all
+    if params[:q]
+      @materials = Material.where("name LIKE ?", "%#{params[:q]}%").select(['name', 'id']).order(:name)
+    else
+      @materials = Material.all
+    end
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @materials }
+      format.json { render json: @materials.map(&:attributes) }
     end
   end
 

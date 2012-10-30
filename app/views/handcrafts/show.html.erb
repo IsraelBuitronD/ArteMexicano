@@ -6,6 +6,11 @@
 </p>
 
 <p>
+  <b>Artist:</b>
+  <%= @handcraft.artist.name %>
+</p>
+
+<p>
   <b>Description:</b>
   <%= @handcraft.description %>
 </p>
@@ -40,10 +45,32 @@
   <%= @handcraft.status %>
 </p>
 
-<p>
-  <b>Artist:</b>
-  <%= @handcraft.artist.name %>
-</p>
+<% unless @handcraft.techniques.empty? %>
+  <p>
+    <b>Techniques:</b>
+    <% @handcraft.techniques.each do |t| %>
+      <%= t.name %>
+    <% end %>
+  </p>
+<% end %>
+
+<% unless @handcraft.materials.empty? %>
+  <p>
+    <b>Materials:</b>
+    <% @handcraft.materials.each do |m| %>
+      <%= m.name %>
+    <% end %>
+  </p>
+<% end %>
+
+<% unless @handcraft.manufacturing_techniques.empty? %>
+  <p>
+    <b>Manufacturing_Techniques:</b>
+    <% @handcraft.manufacturing_techniques.each do |m| %>
+      <%= m.name %>
+    <% end %>
+  </p>
+<% end %>
 
 
 <%= link_to 'Edit', edit_handcraft_path(@handcraft) %> |

@@ -12,6 +12,10 @@
   <% end %>
 
   <div class="field">
+    <%= f.label :artist_name %><br />
+    <%= f.text_field :artist_name, data: {autocomplete_source: artists_path} %>
+  </div>
+  <div class="field">
     <%= f.label :name %><br />
     <%= f.text_field :name %>
   </div>
@@ -53,9 +57,18 @@
     <% end %>
   </div>
   <div class="field">
-    <%= f.label :artist_name %><br />
-    <%= f.text_field :artist_name, data: {autocomplete_source: artists_path} %>
+    <%= f.label :techniques_tokens %><br />
+    <%= f.text_field :techniques_tokens, data: {pre: @handcraft.techniques.map(&:attributes).to_json } %>
   </div>
+  <div class="field">
+    <%= f.label :materials_tokens %><br />
+    <%= f.text_field :materials_tokens, data: {pre: @handcraft.materials.map(&:attributes).to_json } %>
+  </div>
+  <div class="field">
+    <%= f.label :manufacturing_techniques_tokens %><br />
+    <%= f.text_field :manufacturing_techniques_tokens, data: {pre: @handcraft.manufacturing_techniques.map(&:attributes).to_json } %>
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

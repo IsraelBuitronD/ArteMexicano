@@ -14,10 +14,3 @@
 //= require jquery-ui
 //= require jquery_ujs
 //= require_tree .
-
-$(function() {
-    $("#artist_techniques_tokens").tokenInput("/techniques.json", {
-	crossDomain: false,
-	prePopulate: $('#artist_techniques_tokens').data('pre')
-    });
-});

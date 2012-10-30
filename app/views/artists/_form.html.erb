@@ -53,7 +53,7 @@
   </div>
   <div class="field">
     <%= f.label :techniques_tokens %><br />
-    <%= f.text_field :techniques_tokens, "data-pre" => @artist.techniques.map(&:attributes).to_json %>
+    <%= f.text_field :techniques_tokens, data: {pre: @artist.techniques.map(&:attributes).to_json} %>
   </div>
   <div class="actions">
     <%= f.submit %>

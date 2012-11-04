@@ -38,4 +38,5 @@ gem 'jquery-rails'
 # gem 'debugger'
 
 gem 'acts-as-taggable-on'
+gem 'rmagick'
 gem 'carrierwave'

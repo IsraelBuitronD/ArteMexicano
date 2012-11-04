@@ -1,6 +1,16 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <b>Photo:</b>
+  <%= image_tag @photo.filename_url %>
+</p>
+
+<p>
+  <b>Thumb:</b>
+  <%= image_tag @photo.filename_url(:thumb) %>
+</p>
+
+<p>
   <b>Filename:</b>
   <%= @photo.filename %>
 </p>

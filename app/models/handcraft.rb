@@ -8,7 +8,7 @@ class Handcraft < ActiveRecord::Base
   has_and_belongs_to_many :techniques
   has_and_belongs_to_many :materials
   has_and_belongs_to_many :manufacturing_techniques
-  has_and_belongs_to_many :photos
+  has_many :photos
 
   validates :artist_id, :presence => true
   validates :artist_name, :presence => true

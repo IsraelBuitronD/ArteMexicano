@@ -1,5 +1,7 @@
 class Photo < ActiveRecord::Base
-  attr_accessible :cover, :description, :filename
+  attr_accessible :cover, :description, :filename, :remote_filename_url
 
-  has_and_belongs_to_many :handcrafts
+  belongs_to :handcraft
+
+  mount_uploader :filename, PhotoUploader
 end

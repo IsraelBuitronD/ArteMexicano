@@ -5,7 +5,7 @@
 
   <p>
     <% @artists.each do |a| %>
-      <%= a.name %>
+      <%= link_to a.name, a %>
     <% end %>
   </p>
 </section>
@@ -15,7 +15,7 @@
 
   <p>
     <% @handcrafts.each do |h| %>
-      <%= h.name %>
+      <%= link_to h.name, h %>
     <% end %>
   </p>
 </section>
@@ -39,7 +39,7 @@
 
   <p>
     <% @cultural_backgrounds.each do |cb| %>
-      <%= cb.name %>
+      <%= link_to cb.name, cb %>
     <% end %>
   </p>
 </section>

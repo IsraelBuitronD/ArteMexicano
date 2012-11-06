@@ -15,7 +15,7 @@
 
   <p>
     <% @handcrafts.each do |h| %>
-      <%= link_to h.name, h %>
+      <%= link_to image_tag(h.cover_photo.filename_url(:thumb).to_s, alt: h.name), h %>
     <% end %>
   </p>
 </section>

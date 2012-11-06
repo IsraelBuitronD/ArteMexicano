@@ -72,6 +72,15 @@
   </p>
 <% end %>
 
+<% unless @handcraft.photos.empty? %>
+  <p>
+    <b>Photos:</b>
+    <% @handcraft.photos.each do |p| %>
+      <%= image_tag p.filename_url(:thumb).to_s  %>
+    <% end %>
+  </p>
+<% end %>
+
 
 <%= link_to 'Edit', edit_handcraft_path(@handcraft) %> |
 <%= link_to 'Back', handcrafts_path %>

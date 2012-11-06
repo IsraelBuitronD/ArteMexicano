@@ -1,0 +1,17 @@
+<fieldset>
+  <div class="field">
+    <%= f.label :filename %><br />
+    <%= f.file_field :filename %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_field :description %>
+  </div>
+  <div class="field">
+    <%= f.label :cover %><br />
+    <%= f.radio_button :cover, 'Cover' %>
+  </div>
+  <div class="field">
+    <%= link_to "Remove Photo", '#', class: "remove_fields" %>
+  </div>
+</fieldset>

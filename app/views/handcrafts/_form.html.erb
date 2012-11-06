@@ -1,4 +1,4 @@
-<%= form_for(@handcraft) do |f| %>
+<%= form_for @handcraft, html: {multipart: true} do |f| %>
   <% if @handcraft.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@handcraft.errors.count, "error") %> prohibited this handcraft from being saved:</h2>
@@ -67,6 +67,15 @@
   <div class="field">
     <%= f.label :manufacturing_techniques_tokens %><br />
     <%= f.text_field :manufacturing_techniques_tokens, data: {pre: @handcraft.manufacturing_techniques.map(&:attributes).to_json } %>
+  </div>
+
+  <!-- Photos -->
+  <%= f.fields_for :photos do |p| %>
+    <%= render 'photo_fields', f: p %>
+  <% end %>
+
+  <div class="field">
+    <%= link_to_add_fields "Add Photo", f, :photos %>
   </div>
 
   <div class="actions">

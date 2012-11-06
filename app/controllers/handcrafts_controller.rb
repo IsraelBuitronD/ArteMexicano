@@ -29,6 +29,7 @@ class HandcraftsController < ApplicationController
   # GET /handcrafts/new.json
   def new
     @handcraft = Handcraft.new
+    @handcraft.photos.build
 
     respond_to do |format|
       format.html # new.html.erb
@@ -39,6 +40,7 @@ class HandcraftsController < ApplicationController
   # GET /handcrafts/1/edit
   def edit
     @handcraft = Handcraft.find(params[:id])
+    @handcraft.photos.build
   end
 
   # POST /handcrafts

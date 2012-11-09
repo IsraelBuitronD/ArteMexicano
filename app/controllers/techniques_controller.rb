@@ -1,4 +1,7 @@
 class TechniquesController < ApplicationController
+
+  before_filter :authenticate_user!, except: [:index, :show]
+
   # GET /techniques
   # GET /techniques.json
   def index

@@ -1,4 +1,7 @@
 class MaterialsController < ApplicationController
+
+  before_filter :authenticate_user!, except: [:index, :show]
+
   # GET /materials
   # GET /materials.json
   def index

@@ -1,4 +1,7 @@
 class CulturalBackgroundsController < ApplicationController
+
+  before_filter :authenticate_user!, except: [:show]
+
   # GET /cultural_backgrounds
   # GET /cultural_backgrounds.json
   def index

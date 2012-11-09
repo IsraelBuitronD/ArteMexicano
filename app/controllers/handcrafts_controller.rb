@@ -1,4 +1,7 @@
 class HandcraftsController < ApplicationController
+
+  before_filter :authenticate_user!, except: [:index, :show]
+
   # GET /handcrafts
   # GET /handcrafts.json
   def index

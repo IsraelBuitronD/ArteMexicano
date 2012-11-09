@@ -31,13 +31,9 @@
 </p>
 
 <p>
-  <b>Latitude:</b>
-  <%= @artist.latitude %>
-</p>
-
-<p>
-  <b>Longitud:</b>
-  <%= @artist.longitud %>
+  <b>Geolocation:</b>
+  <% url = "https://maps.google.com.mx/?ie=UTF8&ll=#{@artist.latitude},#{@artist.longitud}&spn=0.758125,0.877533&t=h&z=10&output=embed" %>
+  <iframe width="225" height="150" src="<%= url %>"></iframe>
 </p>
 
 <p>

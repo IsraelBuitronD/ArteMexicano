@@ -41,3 +41,5 @@ gem 'acts-as-taggable-on'
 gem 'rmagick'
 gem 'carrierwave'
 gem 'nested_form'
+
+gem 'devise'

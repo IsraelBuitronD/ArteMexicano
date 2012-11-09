@@ -1,4 +1,7 @@
 class ManufacturingTechniquesController < ApplicationController
+
+  before_filter :authenticate_user!, except: [:index, :show]
+
   # GET /manufacturing_techniques
   # GET /manufacturing_techniques.json
   def index

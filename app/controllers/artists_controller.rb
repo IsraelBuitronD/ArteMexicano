@@ -1,4 +1,7 @@
 class ArtistsController < ApplicationController
+
+  before_filter :authenticate_user!, except: [:index, :show]
+
   # GET /artists
   # GET /artists.json
   def index

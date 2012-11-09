@@ -1,86 +1,67 @@
-<p id="notice"><%= notice %></p>
+<section class="left-column">
+  <% if @handcraft.cover_photo %>
+    <!-- Handcraft photo -->
+    <p class="photo">
+      <%= image_tag @handcraft.cover_photo.filename_url.to_s, alt: @handcraft.name %>
+    </p>
+  <% end %>
 
-<p>
-  <b>Name:</b>
-  <%= @handcraft.name %>
-</p>
+  <% if @handcraft.description -%>
+    <!-- Handcraft description -->
+    <p class="description">
+      <%= @handcraft.description %>
+    </p>
+  <% end -%>
 
-<p>
-  <b>Artist:</b>
-  <%= @handcraft.artist.name %>
-</p>
+  <% if @handcraft.weight || @handcraft.width || @handcraft.height -%>
+    <!-- Handcraft dimensions -->
+    <p class="dimensions">
+      <h1>Dimensions</h1>
+      <ul>
+	<li>Weight: <%= @handcraft.weight %></li>
+	<li>Width: <%= @handcraft.width %></li>
+	<li>Height: <%= @handcraft.height %></li>
+      </ul>
+    </p>
+  <% end -%>
 
-<p>
-  <b>Description:</b>
-  <%= @handcraft.description %>
-</p>
+  <!-- Handcraft artist card -->
+  <%= render partial: 'handcraft_artist_card' %>
 
-<p>
-  <b>Weight:</b>
-  <%= @handcraft.weight %>
-</p>
+</section>
 
-<p>
-  <b>Height:</b>
-  <%= @handcraft.height %>
-</p>
+<aside class="right-column">
 
-<p>
-  <b>Width:</b>
-  <%= @handcraft.width %>
-</p>
+  <% unless @handcraft.materials.empty? %>
+    <section>
+      <header>Materials:</b>
+      <% @handcraft.materials.each do |m| %>
+	<%= m.name %>
+      <% end %>
+    </section>
+  <% end %>
 
-<p>
-  <b>Depth:</b>
-  <%= @handcraft.depth %>
-</p>
+  <% unless @handcraft.manufacturing_techniques.empty? %>
+    <p>
+      <b>Manufacturing_Techniques:</b>
+      <% @handcraft.manufacturing_techniques.each do |m| %>
+	<%= m.name %>
+      <% end %>
+    </p>
+  <% end %>
 
-<p>
-  <b>Highlight:</b>
-  <%= @handcraft.highlight %>
-</p>
+  <% unless @handcraft.photos.empty? %>
+    <p>
+      <b>Photos:</b>
+      <% @handcraft.photos.each do |p| %>
+	<%= image_tag p.filename_url(:thumb).to_s  %>
+      <% end %>
+    </p>
+  <% end %>
 
-<p>
-  <b>Status:</b>
-  <%= @handcraft.status %>
-</p>
+</aside>
 
-<% unless @handcraft.techniques.empty? %>
-  <p>
-    <b>Techniques:</b>
-    <% @handcraft.techniques.each do |t| %>
-      <%= t.name %>
-    <% end %>
-  </p>
-<% end %>
-
-<% unless @handcraft.materials.empty? %>
-  <p>
-    <b>Materials:</b>
-    <% @handcraft.materials.each do |m| %>
-      <%= m.name %>
-    <% end %>
-  </p>
-<% end %>
-
-<% unless @handcraft.manufacturing_techniques.empty? %>
-  <p>
-    <b>Manufacturing_Techniques:</b>
-    <% @handcraft.manufacturing_techniques.each do |m| %>
-      <%= m.name %>
-    <% end %>
-  </p>
-<% end %>
-
-<% unless @handcraft.photos.empty? %>
-  <p>
-    <b>Photos:</b>
-    <% @handcraft.photos.each do |p| %>
-      <%= image_tag p.filename_url(:thumb).to_s  %>
-    <% end %>
-  </p>
-<% end %>
-
-
+<nav class="footer">
 <%= link_to 'Edit', edit_handcraft_path(@handcraft) %> |
 <%= link_to 'Back', handcrafts_path %>
+</nav>

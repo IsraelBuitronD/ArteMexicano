@@ -1,0 +1,29 @@
+<h1>Home#search</h1>
+
+<section>
+  <h2>Artists</h2>
+
+  <p>
+    <% if @artists.empty? %>
+      No artists found
+    <% else %>
+      <% @artists.each do |a| %>
+	<%= link_to a.name, a %>
+      <% end %>
+    <% end %>
+  </p>
+</section>
+
+<section>
+  <h2>Handcrafts</h2>
+
+  <p>
+    <% if @handcrafts.empty? %>
+      No handcrafts found
+    <% else %>
+      <% @handcrafts.each do |h| %>
+	<%= link_to image_tag(h.cover_photo.filename_url(:thumb).to_s, alt: h.name), h %>
+      <% end %>
+    <% end %>
+  </p>
+</section>

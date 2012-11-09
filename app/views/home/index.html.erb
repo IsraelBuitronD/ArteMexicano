@@ -35,6 +35,19 @@
 </section>
 
 <section>
+  <h2>Search</h2>
+
+  <p>
+    <%= form_tag home_search_path, method: :get do |f| %>
+      <div class="field">
+	<%= label_tag :keywords %><br />
+	<%= text_field_tag :keywords %>
+      </div>
+    <% end %>
+  </p>
+</section>
+
+<section>
   <h2>Cultural Background</h2>
 
   <p>

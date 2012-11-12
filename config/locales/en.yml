@@ -4,6 +4,10 @@
 
 en:
   hello: Hello world
+  search:
+    submit: Search
+  artists:
+    title: Artists
   artist:
     about_me: About me
     other_info: Details

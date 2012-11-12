@@ -45,3 +45,5 @@ gem 'nested_form'
 gem 'devise'
 
 gem 'tinymce-rails'
+
+gem 'seed_dump'

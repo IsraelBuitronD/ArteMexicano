@@ -4,6 +4,8 @@
 
 es:
   hello: Hola Mundo
+  search:
+    submit: Buscar
   artists:
     title: Artesanos
   artist:

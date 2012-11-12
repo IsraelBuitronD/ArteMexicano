@@ -47,6 +47,6 @@
     </div>
   </section>
 </article>
-<% if user_signed_in? %>
+<% if is_admin %>
 <%= link_to 'Edit', edit_artist_path(@artist) %> | <%= link_to 'Back', artists_path %>
 <% end %>

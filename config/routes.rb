@@ -7,6 +7,8 @@ ArteMexicano::Application.routes.draw do
 
   get 'tags/:tag', to: 'handcrafts#index', as: :tag
 
+  resources :carts
+
   resources :handcrafts
 
   resources :artists

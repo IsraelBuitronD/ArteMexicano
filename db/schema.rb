@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121109184051) do
+ActiveRecord::Schema.define(:version => 20121112052426) do
 
   create_table "artists", :force => true do |t|
     t.string  "name"
@@ -32,6 +32,11 @@ ActiveRecord::Schema.define(:version => 20121109184051) do
   end
 
   add_index "artists_techniques", ["artist_id", "technique_id"], :name => "artists_techniques_index", :unique => true
+
+  create_table "carts", :force => true do |t|
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "cultural_backgrounds", :force => true do |t|
     t.string   "name"

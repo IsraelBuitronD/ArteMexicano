@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121112070547) do
+ActiveRecord::Schema.define(:version => 20121112172231) do
 
   create_table "artists", :force => true do |t|
     t.string  "name"
@@ -96,8 +96,9 @@ ActiveRecord::Schema.define(:version => 20121112070547) do
   create_table "line_items", :force => true do |t|
     t.integer  "handcraft_id"
     t.integer  "cart_id"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at",                  :null => false
+    t.datetime "updated_at",                  :null => false
+    t.integer  "quantity",     :default => 1
   end
 
   create_table "manufacturing_techniques", :force => true do |t|

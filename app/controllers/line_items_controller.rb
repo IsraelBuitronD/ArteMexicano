@@ -42,7 +42,7 @@ class LineItemsController < ApplicationController
   def create
     @cart = current_cart
     handcraft = Handcraft.find(params[:handcraft_id])
-    @line_item = @cart.line_items.build(handcraft_id: handcraft.id)
+    @line_item = @cart.add_handcraft(handcraft.id)
 
     respond_to do |format|
       if @line_item.save

@@ -28,3 +28,5 @@ State.create(name: 'Tlaxcala')
 State.create(name: 'Veracruz de Ignacio de Llave')
 State.create(name: 'Yucatan')
 State.create(name: 'Zacatecas')
+
+User.create(email: 'admin@artepopular.com.mx', password: 'admin')

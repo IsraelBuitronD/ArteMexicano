@@ -14,4 +14,6 @@
 //= require jquery-ui
 //= require jquery_ujs
 //= require tinymce-jquery
+//= require bootstrap/bootstrap.min
+//= require token-input/jquery.tokeninput
 //= require_tree .

@@ -2,10 +2,12 @@
 # Sample localization file for English. Add more files in this directory for other locales.
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
-en:
-  hello: Hello world
+es:
+  hello: Hola Mundo
+  artists:
+    title: Artesanos
   artist:
-    about_me: About me
-    other_info: Details
-    business_name: Business Name
-    recent_handcrafts: Recent Pieces
+    about_me: Acerca de mí
+    other_info: Detalles
+    business_name: Empresa
+    recent_handcrafts: Piezas recientes

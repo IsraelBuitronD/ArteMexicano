@@ -4,4 +4,8 @@ class LineItem < ActiveRecord::Base
   belongs_to :handcraft
   belongs_to :cart
 
+  def total_price
+    handcraft.price * quantity
+  end
+
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121112053304) do
+ActiveRecord::Schema.define(:version => 20121112070547) do
 
   create_table "artists", :force => true do |t|
     t.string  "name"
@@ -55,6 +55,7 @@ ActiveRecord::Schema.define(:version => 20121112053304) do
     t.boolean "highlight"
     t.integer "status"
     t.integer "artist_id"
+    t.decimal "price",       :precision => 11, :scale => 2, :default => 0.0
   end
 
   create_table "handcrafts_cultural_backgrounds", :id => false, :force => true do |t|

@@ -32,6 +32,11 @@
 
 <aside class="right-column">
 
+  <section class="price_line" >
+    <span class="price" ><%= number_to_currency(@handcraft.price) %></span>
+    <%= button_to 'Add to Cart', line_items_path(handcraft_id: @handcraft) %>
+  </section>
+
   <% unless @handcraft.materials.empty? %>
     <section>
       <header>Materials:</b>

@@ -2,6 +2,8 @@ class Handcraft < ActiveRecord::Base
   attr_accessible :artist_id, :artist_name, :depth, :description, :height, :highlight, :name, :status, :weight, :width, :tag_list, :techniques_tokens, :materials_tokens, :manufacturing_techniques_tokens, :photos_attributes
   attr_reader :techniques_tokens, :materials_tokens, :manufacturing_techniques_tokens
 
+  before_destroy :ensure_not_referenced_by_any_line_item
+
   acts_as_taggable
 
   belongs_to :artist
@@ -9,6 +11,7 @@ class Handcraft < ActiveRecord::Base
   has_and_belongs_to_many :materials
   has_and_belongs_to_many :manufacturing_techniques
   has_many :photos
+  has_many :line_items
 
   accepts_nested_attributes_for :photos, allow_destroy: true
 
@@ -45,4 +48,15 @@ class Handcraft < ActiveRecord::Base
   def manufacturing_techniques_tokens=(ids)
     self.manufacturing_technique_ids = ids.split(',')
   end
+
+  # Ensure that there are no line items referencing this handcraft
+  def ensure_not_referenced_by_any_line_item
+    if line_items.count.zero?
+      return true
+    else
+      errors[:base] << "Line Items present"
+      return false
+    end
+  end
+
 end

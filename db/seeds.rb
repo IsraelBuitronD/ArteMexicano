@@ -43,8 +43,6 @@ Technique.create([
   { :name => "Papel Recortado", :description => "<p>Papel recortado sin dise&ntilde;o previo, entintado por la orilla.</p>" }
 ], :without_protection => true )
 
-
-
 User.create([
   { :email => "admin@artepopular.com.mx", :encrypted_password => "$2a$10$cDposMV2TGweLWb1nDZDB.6Mu.mrPEY38Uqv5YNUTIe8ASww9tqri", :created_at => "2012-11-13 02:34:56", :updated_at => "2012-11-13 02:34:56" }
 ], :without_protection => true )

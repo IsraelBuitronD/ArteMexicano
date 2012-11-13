@@ -14,4 +14,24 @@
 //= require jquery-ui
 //= require jquery_ujs
 //= require tinymce-jquery
+//= require bootstrap/bootstrap.min
+//= require token-input/jquery.tokeninput
 //= require_tree .
+
+$(function(){
+  $('textarea.tinymce').tinymce({
+  	"mode":"specific_textareas",
+  	"editor_selector":"tinymce",
+  	"theme":"advanced",
+  	"theme_advanced_toolbar_location":"top",
+  	"theme_advanced_toolbar_align":"left",
+  	"theme_advanced_statusbar_location":"bottom",
+  	"theme_advanced_buttons3_add":"tablecontrols,fullscreen",
+  	"plugins":"table,fullscreen",
+  	"language":"en"
+  });
+  $("[data-autocomplete-source]").each(function(){
+  	var $this = $(this), data = $this.data();
+  	$this.tokenInput(data.autocompleteSource, {tokenLimit: data.autocompleteLimit || false});
+  });
+})

@@ -1,41 +1,19 @@
-<h1>Listing artists</h1>
-
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Business name</th>
-    <th>Address</th>
-    <th>Phone</th>
-    <th>Email</th>
-    <th>Foto</th>
-    <th>Latitude</th>
-    <th>Longitud</th>
-    <th>Location</th>
-    <th>Biography</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @artists.each do |artist| %>
-  <tr>
-    <td><%= artist.name %></td>
-    <td><%= artist.business_name %></td>
-    <td><%= artist.address %></td>
-    <td><%= artist.phone %></td>
-    <td><%= artist.email %></td>
-    <td><%= artist.foto %></td>
-    <td><%= artist.latitude %></td>
-    <td><%= artist.longitud %></td>
-    <td><%= artist.location %></td>
-    <td><%= artist.biography %></td>
-    <td><%= link_to 'Show', artist %></td>
-    <td><%= link_to 'Edit', edit_artist_path(artist) %></td>
-    <td><%= link_to 'Destroy', artist, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
+<article>
+  <header>
+    <h1><%= t 'artists.title' %></h1>
+  </header>
+  <section class="row-fluid">
+    <% @artists.each do |artist| %>
+    <div class="media">
+      <%= link_to image_tag(artist.foto.thumb.to_s, :class => 'media-object'), artist, :class => 'pull-left' %>
+      <div class="media-body">
+        <h4><%= artist.name %></h4>
+        <p><%= raw artist.biography %></p>
+      </div>
+    </div>
+    <% end %>
+  </section>
+</article>
+<% if is_admin %>
 <%= link_to 'New Artist', new_artist_path %>
+<% end %>

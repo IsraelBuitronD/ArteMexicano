@@ -1,60 +1,52 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <b>Name:</b>
-  <%= @artist.name %>
-</p>
-
-<p>
-  <b>Business name:</b>
-  <%= @artist.business_name %>
-</p>
-
-<p>
-  <b>Address:</b>
-  <%= @artist.address %>
-</p>
-
-<p>
-  <b>Phone:</b>
-  <%= @artist.phone %>
-</p>
-
-<p>
-  <b>Email:</b>
-  <%= @artist.email %>
-</p>
-
-<p>
-  <b>Foto:</b>
-  <%= @artist.foto %>
-</p>
-
-<p>
-  <b>Geolocation:</b>
-  <% url = "https://maps.google.com.mx/?ie=UTF8&ll=#{@artist.latitude},#{@artist.longitud}&spn=0.758125,0.877533&t=h&z=10&output=embed" %>
-  <iframe width="225" height="150" src="<%= url %>"></iframe>
-</p>
-
-<p>
-  <b>Location:</b>
-  <%= @artist.location %>
-</p>
-
-<p>
-  <b>Biography:</b>
-  <%= @artist.biography %>
-</p>
-
-<p>
-  <b>Techniques:</b>
-  <ul>
-  <% @artist.techniques.each do |t| %>
-  <li><%= t.name %></li>
-  <% end %>
-  </ul>
-</p>
-
-
-<%= link_to 'Edit', edit_artist_path(@artist) %> |
-<%= link_to 'Back', artists_path %>
+<article>
+  <header>
+    <h1><%= @artist.name %></h1>
+  </header>
+  <section class="row-fluid">
+    <div class="span5">
+      <figure>
+        <%= image_tag @artist.foto.to_s, alt: @artist.name %>
+      </figure>
+      <hr>
+      <div class="thumbs">
+        <h3><%= t 'artist.recent_handcrafts' %>
+        <% 3.times do %>
+        <ul class="thumbnails">
+          <% 3.times do %>
+          <li class="span4"><a><%= image_tag @artist.foto.thumb.to_s, alt: @artist.name %></a></li>
+          <% end %>
+        </ul>
+        <% end %>
+      </div>
+    </div>
+    <div class="span7">
+      <h3><%= t 'artist.about_me' %></h3>
+      <div class="well">
+        <%= raw @artist.biography %>
+      </div>
+      <h3><%= t 'artist.other_info' %></h3>
+      <div class="well well-small">
+        <dl class="dl-horizontal">
+          <dt><%= t('artist.business_name') %></dt>
+          <dd><%= @artist.business_name %></dd>
+          <dt><%= t('artist.address') %></dt>
+          <dd><%= @artist.address %></dd>
+          <dt><%= t('artist.phone') %></dt>
+          <dd><%= @artist.phone %></dd>
+          <dt><%= t('artist.email') %></dt>
+          <dd><%= mail_to @artist.email, nil, :encode => 'hex' %></dd>
+        </dl>
+        <% url = "https://maps.google.com.mx/?ie=UTF8&ll=#{@artist.latitude},#{@artist.longitud}&spn=0.758125,0.877533&t=h&z=10&output=embed" %>
+        <iframe width="100%" height="200" src="<%= url %>"></iframe>
+      </div>
+      <div class="mutted">
+        <% @artist.techniques.each do |t| %>
+          <%= link_to t.name, @t, :class => 'btn' %>
+        <% end %>
+      </div>
+    </div>
+  </section>
+</article>
+<% if is_admin %>
+<%= link_to 'Edit', edit_artist_path(@artist) %> | <%= link_to 'Back', artists_path %>
+<% end %>

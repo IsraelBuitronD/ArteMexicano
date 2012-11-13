@@ -1,58 +1,35 @@
-<h1>Home#index</h1>
-
-<section>
-  <h2>Artists</h2>
-
-  <p>
-    <% @artists.each do |a| %>
-      <%= link_to a.name, a %>
+<article>
+  <section class="row-fluid">
+  <% @artists.each do |a| %>
+    <%= link_to image_tag(a.foto.small.to_s), a, :class => 'span2' %>
+  <% end %>
+  </section>
+  <hr>
+  <section class="row-fluid">
+  <% @handcrafts.each do |h| %>
+    <%= link_to image_tag(h.cover_photo.filename_url(:small).to_s, alt: h.name), h, :class => 'span3' %>
+  <% end %>
+  </section>
+  <hr>
+  <section class="row-fluid">
+    <p class="span4">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <p class="span4">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <p class="span4">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  </section>
+  <hr>
+  <section>
+    <%= form_tag home_search_path, method: :get, :class => 'form-search pagination-centered' do |f| %>
+    <%= text_field_tag :keywords, nil, :class => 'input-medium search-query' %>
+    <%= submit_tag t('search.submit'), :class => 'btn' %>
     <% end %>
-  </p>
-</section>
-
-<section>
-  <h2>Handcrafts</h2>
-
-  <p>
-    <% @handcrafts.each do |h| %>
-      <%= link_to image_tag(h.cover_photo.filename_url(:thumb).to_s, alt: h.name), h %>
-    <% end %>
-  </p>
-</section>
-
-<section>
-  <div>
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-  </div>
-
-  <div>
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-  </div>
-
-  <div>
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-  </div>
-</section>
-
-<section>
-  <h2>Search</h2>
-
-  <p>
-    <%= form_tag home_search_path, method: :get do |f| %>
-      <div class="field">
-	<%= label_tag :keywords %><br />
-	<%= text_field_tag :keywords %>
-      </div>
-    <% end %>
-  </p>
-</section>
-
-<section>
-  <h2>Cultural Background</h2>
-
-  <p>
-    <% @cultural_backgrounds.each do |cb| %>
-      <%= link_to cb.name, cb %>
-    <% end %>
-  </p>
-</section>
+  </section>
+  <hr>
+  <section>
+    <h2>Cultural Background</h2>
+    <p>
+      <% @cultural_backgrounds.each do |cb| %>
+        <%= link_to cb.name, cb %>
+      <% end %>
+    </p>
+  </section>
+</article>

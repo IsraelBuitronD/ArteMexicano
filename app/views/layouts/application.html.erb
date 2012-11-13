@@ -1,28 +1,55 @@
 <!DOCTYPE html>
-<html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
 <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width">
+  <%= csrf_meta_tags %>
   <title>ArteMexicano</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
+  <script src="/assets/modernizr-2.6.2.min.js"></script>
 </head>
-<body>
-
-  <nav>
-    <% if user_signed_in? %>
-      Logged in as <strong><%= current_user.email %></strong>.
-      <%= link_to 'Edit profile', edit_user_registration_path %> |
-      <%= link_to "Logout", destroy_user_session_path, method: :delete %>
-    <% else %>
-      <%= link_to "Sign up", new_user_registration_path %> |
-      <%= link_to "Login", new_user_session_path %>
-    <% end %>
-  </nav>
-
-<% if notice -%><p class="notice"><%= notice %></p><% end -%>
-<% if alert -%><p class="alert"><%= alert %></p><% end -%>
-
-<%= yield %>
-
+<body data-spy="scroll">
+  <header>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="/">FOLKART</a>
+          <ul class="nav">
+            <li><a href="/artists">Artists</a></li>
+            <li><a href="/handcrafts">Handcrafts</a></li>
+          </ul>
+          <ul class="nav pull-right">
+          <% if user_signed_in? %>
+            <li><%= link_to current_user.email, edit_user_registration_path %></li>
+            <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+          <% else %>
+            <li><%= link_to "Sign up", new_user_registration_path %></li>
+            <li><%= link_to "Login", new_user_session_path %></li>
+          <% end %>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <div role="main" class="container">
+    <% if notice -%><p class="alert alert-info"><%= notice %></p><% end -%>
+    <% if alert -%><p class="alert alert-error"><%= alert %></p><% end -%>
+    <%= yield %>
+  </div>
+  <footer>
+  </footer>
+  <%= javascript_include_tag "application" %>
+  <!-- Google Analytics: change UA-XXXXX-X to be your site's ID.
+  <script>
+      var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+      (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+      g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+      s.parentNode.insertBefore(g,s)}(document,'script'));
+  </script>-->
 </body>
 </html>

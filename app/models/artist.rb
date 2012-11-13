@@ -6,6 +6,8 @@ class Artist < ActiveRecord::Base
   has_and_belongs_to_many :manufacturing_techniques
   has_and_belongs_to_many :handcrafts
 
+  mount_uploader :foto, PhotoUploader
+
   def techniques_tokens=(ids)
     self.technique_ids = ids.split(',')
   end

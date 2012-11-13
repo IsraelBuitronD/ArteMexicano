@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 State.create(name: 'Aguascalientes')
 State.create(name: 'Baja California')
 State.create(name: 'Baja California Sur')
@@ -29,10 +31,10 @@ State.create(name: 'Veracruz de Ignacio de Llave')
 State.create(name: 'Yucatan')
 State.create(name: 'Zacatecas')
 
-User.create(email: 'admin@artepopular.com.mx', password: 'admin')# encoding: utf-8
+User.create(email: 'admin@artepopular.com.mx', password: 'admin')
 
 Artist.create([
-  { :name => "Cesar Duranton", :business_name => "Duranton", :address => "Mexico, DF", :phone => "5512341234", :email => "cesar.duranton@artepopular.com.mx", :foto => "cesarduranton.jpg", :latitude => 19.432661, :longitud => -99.13334, :location => "Mexico, DF", :biography => "<p><span style=\"color: #777777; font-family: Georgia, 'Times New Roman', serif; font-size: 13px; font-style: italic; line-height: 18px;\">Trabajo dentro del arte popular mexicano, desde hace 15 a&ntilde;os elaboro piezas piezas tradicionales y otras de dise&ntilde;o propio en cartoner&iacute;a.</span></p>" }
+  { :name => "Cesar Duranton", :business_name => "Duranton", :address => "Mexico, DF", :phone => "5512341234", :email => "cesar.duranton@artepopular.com.mx", :foto => "cesarduranton.jpg", :latitude => 19.432661, :longitud => -99.13334, :location => "Mexico, DF", :biography => "<p><span style=\"color: #777777; font-family: Georgia, 'Times New Roman', serif; font-size: 13px; font-style: italic; line-height: 18px;\">Trabajo dentro del arte popular mexicano, desde hace 15 a&ntilde;os elaboro piezas piezas tradicionales.</span></p>" }
 ], :without_protection => true )
 
 Technique.create([

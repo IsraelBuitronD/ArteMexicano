@@ -49,7 +49,8 @@
   </div>
   <div class="field">
     <%= f.label :biography %><br />
-    <%= f.text_field :biography %>
+    <%= f.text_area :biography, :class => "tinymce", :rows => 20, :cols => 50 %>
+    <%= tinymce %>
   </div>
   <div class="field">
     <%= f.label :techniques_tokens %><br />

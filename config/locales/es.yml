@@ -3,7 +3,11 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 es:
-  hello: Hola Mundo
+  devise:
+    sessions:
+      user:
+        signed_in: Bienvenido!
+        signed_out: Hasta luego!
   search:
     submit: Buscar
   artists:

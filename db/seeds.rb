@@ -38,5 +38,5 @@ Artist.create([
 ], :without_protection => true )
 
 Technique.create([
-  { :name => "Cartonería", :description => "<p>La Cartoner&iacute;a es considerada un arte popular mexicano, consiste en una t&eacute;cnica con la que se crean figuras a trav&eacute;s de un proceso de modelado de papel peri&oacute;dico.</p>\r\n<p>Entre los m&aacute;s relevantes tipos de piezas creadas con esta t&eacute;cnica est&aacute;n los llamados judas diablitos, pi&ntilde;atas, toritos, mojigangas, alebrijes, catrinas y calaveras, viejitos y panzones, as&iacute; como m&aacute;scaras y juguetes hechos de papel entre los que destacan la &ldquo;lolita&rdquo; y los caballitos.</p>" }
+  { :name => "Cartonería", :description => "<p>La Cartoner&iacute;a es considerada un arte popular mexicano, consiste en una t&eacute;cnica con la que se crean figuras a trav&eacute;s de un proceso de modelado de papel peri&oacute;dico.</p>" }
 ], :without_protection => true )

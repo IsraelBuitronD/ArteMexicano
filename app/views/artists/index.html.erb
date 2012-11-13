@@ -1,4 +1,4 @@
-<article>
+<article class="list">
   <header>
     <h1><%= t 'artists.title' %></h1>
   </header>
@@ -8,7 +8,7 @@
       <%= link_to image_tag(artist.foto.thumb.to_s, :class => 'media-object'), artist, :class => 'pull-left' %>
       <div class="media-body">
         <h4><%= artist.name %></h4>
-        <p><%= raw artist.biography %></p>
+        <div class="bio"><%= raw artist.biography %></div>
       </div>
     </div>
     <% end %>

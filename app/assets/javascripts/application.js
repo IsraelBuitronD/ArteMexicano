@@ -30,8 +30,4 @@ $(function(){
   	"plugins":"table,fullscreen",
   	"language":"en"
   });
-  $("[data-autocomplete-source]").each(function(){
-  	var $this = $(this), data = $this.data();
-  	$this.tokenInput(data.autocompleteSource, {tokenLimit: data.autocompleteLimit || false});
-  });
 })

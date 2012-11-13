@@ -13,7 +13,7 @@ class ArtistsController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @artists.map(&:attributes) }
+      format.json { render json: @artists.map(&:name) }
     end
   end
 

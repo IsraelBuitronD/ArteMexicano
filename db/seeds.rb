@@ -68,6 +68,6 @@ Handcraft.create([
 
 Photo.create([
   { :remote_filename_url => "http://artemexicano.s3-website-us-east-1.amazonaws.com/photo/1/cesarduranton01.jpg", :description => "Frente", :cover => true, :created_at => "2012-11-13 08:56:52", :updated_at => "2012-11-13 08:56:52", :handcraft_id => 1 },
-  { :filename => "http://artemexicano.s3-website-us-east-1.amazonaws.com/photo/2/jorgerosano02.jpg", :description => "Frente", :cover => true, :created_at => "2012-11-14 06:57:41", :updated_at => "2012-11-14 06:57:41", :handcraft_id => 2 },
-  { :filename => "http://artemexicano.s3-website-us-east-1.amazonaws.com/photo/3/jorgerosano01.jpg", :description => "Frente", :cover => true, :created_at => "2012-11-14 07:02:15", :updated_at => "2012-11-14 07:02:15", :handcraft_id => 3 }
+  { :remote_filename_url => "http://artemexicano.s3-website-us-east-1.amazonaws.com/photo/2/jorgerosano02.jpg", :description => "Frente", :cover => true, :created_at => "2012-11-14 06:57:41", :updated_at => "2012-11-14 06:57:41", :handcraft_id => 2 },
+  { :remote_filename_url => "http://artemexicano.s3-website-us-east-1.amazonaws.com/photo/3/jorgerosano01.jpg", :description => "Frente", :cover => true, :created_at => "2012-11-14 07:02:15", :updated_at => "2012-11-14 07:02:15", :handcraft_id => 3 }
 ], :without_protection => true )

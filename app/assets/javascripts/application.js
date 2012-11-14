@@ -16,7 +16,7 @@
 //= require tinymce-jquery
 //= require bootstrap/bootstrap.min
 //= require token-input/jquery.tokeninput
-//= require_tree .
+//= require_directory .
 
 $(function(){
   $('textarea.tinymce').tinymce({

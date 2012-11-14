@@ -1,3 +1,4 @@
+#encoding: utf-8
 class TechniquesController < ApplicationController
 
   before_filter :authenticate_user!, except: [:index, :show]
@@ -6,7 +7,7 @@ class TechniquesController < ApplicationController
   # GET /techniques.json
   def index
     if params[:q]
-      @techniques = Technique.where("name LIKE ?", "%#{params[:q]}%").select(['name', 'id']).order(:name)
+      @techniques = Technique.where("LOWER(name) LIKE ?", "%#{params[:q]}%").select(['name', 'id']).order(:name)
     else
       @techniques = Technique.all
     end

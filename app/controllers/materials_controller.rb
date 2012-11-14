@@ -1,3 +1,4 @@
+#encoding: utf-8
 class MaterialsController < ApplicationController
 
   before_filter :authenticate_user!, except: [:index, :show]
@@ -6,7 +7,7 @@ class MaterialsController < ApplicationController
   # GET /materials.json
   def index
     if params[:q]
-      @materials = Material.where("name LIKE ?", "%#{params[:q]}%").select(['name', 'id']).order(:name)
+      @materials = Material.where("LOWER(name) LIKE ?", "%#{params[:q].downcase}%").select(['name', 'id']).order(:name)
     else
       @materials = Material.all
     end

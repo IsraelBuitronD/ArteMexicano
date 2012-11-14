@@ -1,3 +1,4 @@
+#encoding: utf-8
 class ArtistsController < ApplicationController
 
   before_filter :authenticate_user!, except: [:index, :show]
@@ -6,7 +7,7 @@ class ArtistsController < ApplicationController
   # GET /artists.json
   def index
     if params[:term]
-      @artists = Artist.where("name LIKE ?", "%#{params[:term]}%").select(['name', 'id']).order(:name)
+      @artists = Artist.where("LOWER(name) LIKE ?", "%#{params[:term].downcase}%").select(['name', 'id']).order(:name)
     else
       @artists = Artist.all
     end

@@ -1,3 +1,4 @@
+#encoding: utf-8
 class HomeController < ApplicationController
   def index
     @artists = Artist.limit(5).order(:id)

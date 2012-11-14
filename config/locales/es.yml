@@ -10,6 +10,19 @@ es:
         signed_out: Hasta luego!
   search:
     submit: Buscar
+  user:
+    login: Entrar
+    signup: Registrarse
+    logout: Salir
+  crud:
+    new: Agregar
+    show: Detalles
+    delete: Borrar
+    edit: Editar
+# Handcrafts
+  handcrafts:
+    title: Artesanías
+# Artists
   artists:
     title: Artesanos
   artist:

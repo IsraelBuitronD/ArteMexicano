@@ -1,39 +1,16 @@
-<h1>Listing handcrafts</h1>
-
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Description</th>
-    <th>Weight</th>
-    <th>Height</th>
-    <th>Width</th>
-    <th>Depth</th>
-    <th>Highlight</th>
-    <th>Status</th>
-    <th>Artist</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @handcrafts.each do |handcraft| %>
-  <tr>
-    <td><%= handcraft.name %></td>
-    <td><%= handcraft.description %></td>
-    <td><%= handcraft.weight %></td>
-    <td><%= handcraft.height %></td>
-    <td><%= handcraft.width %></td>
-    <td><%= handcraft.depth %></td>
-    <td><%= handcraft.highlight %></td>
-    <td><%= handcraft.status %></td>
-    <td><%= handcraft.artist_id %></td>
-    <td><%= link_to 'Show', handcraft %></td>
-    <td><%= link_to 'Edit', edit_handcraft_path(handcraft) %></td>
-    <td><%= link_to 'Destroy', handcraft, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
+<article class="list">
+  <header>
+    <h1><%= t 'handcrafts.title' %></h1>
+  </header>
+  <section class="row-fluid">
+  <% @handcrafts.each do |handcraft| %>
+    <figure class="span2">
+      <%= link_to image_tag(handcraft.cover_photo.filename.small.to_s), handcraft %>
+      <h4><%= handcraft.name %></h4>
+    </figure>
+  <% end %>
+  </section>
+</article>
+<% if is_admin %>
+<%= link_to t('crud.new'), new_handcraft_path %>
 <% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Handcraft', new_handcraft_path %>

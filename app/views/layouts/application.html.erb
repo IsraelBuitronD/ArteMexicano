@@ -20,16 +20,16 @@
         <div class="container">
           <a class="brand" href="/">FOLKART</a>
           <ul class="nav">
-            <li><a href="/artists">Artists</a></li>
-            <li><a href="/handcrafts">Handcrafts</a></li>
+            <li><a href="/artists"><%=t 'artists.title' %></a></li>
+            <li><a href="/handcrafts"><%=t 'handcrafts.title' %></a></li>
           </ul>
           <ul class="nav pull-right">
           <% if user_signed_in? %>
             <li><%= link_to current_user.email, edit_user_registration_path %></li>
-            <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+            <li><%= link_to t("user.logout"), destroy_user_session_path, method: :delete %></li>
           <% else %>
-            <li><%= link_to "Sign up", new_user_registration_path %></li>
-            <li><%= link_to "Login", new_user_session_path %></li>
+            <li><%= link_to t("user.signup"), new_user_registration_path %></li>
+            <li><%= link_to t("user.login"), new_user_session_path %></li>
           <% end %>
           </ul>
         </div>

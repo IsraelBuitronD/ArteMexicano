@@ -1,13 +1,17 @@
-<article>
+<article class="home">
   <section class="row-fluid">
-  <% @artists.each do |a| %>
-    <%= link_to image_tag(a.foto.small.to_s), a, :class => 'span2' %>
+  <% @handcrafts.each do |h| %>
+    <figure class="span2">
+    <%= link_to image_tag(h.cover_photo.filename.small.to_s, alt: h.name, title: h.name), h %>
+    </figure>
   <% end %>
   </section>
   <hr>
   <section class="row-fluid">
-  <% @handcrafts.each do |h| %>
-    <%= link_to image_tag(h.cover_photo.filename_url(:small).to_s, alt: h.name), h, :class => 'span3' %>
+  <% @artists.each do |a| %>
+    <figure class="span2">
+    <%= link_to image_tag(a.foto.small.to_s, alt: a.name, title: a.name), a %>
+    </figure>
   <% end %>
   </section>
   <hr>

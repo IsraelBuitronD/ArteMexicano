@@ -1,20 +1,13 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <b>Name:</b>
-  <%= @material.name %>
-</p>
-
-<p>
-  <b>Description:</b>
-  <%= @material.description %>
-</p>
-
-<p>
-  <b>State:</b>
-  <%= @material.state.name %>
-</p>
-
-
+<article>
+  <header>
+    <h1><%= @material.name %></h1>
+  </header>
+  <section>
+    <div class="well"><%= raw @material.description %></div>
+    <p><strong>Origen: </strong><%= @material.state.name %></p>
+  </section>
+</article>
+<% if is_admin %>
 <%= link_to 'Edit', edit_material_path(@material) %> |
 <%= link_to 'Back', materials_path %>
+<% end %>

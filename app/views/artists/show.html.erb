@@ -10,6 +10,8 @@
       <hr>
       <div class="thumbs">
         <h3><%= t 'artist.recent_handcrafts' %>
+        <% @artist.handcrafts.each do |h| %>
+        <% end %>
         <% 3.times do %>
         <ul class="thumbnails">
           <% 3.times do %>
@@ -41,7 +43,7 @@
       </div>
       <div class="mutted">
         <% @artist.techniques.each do |t| %>
-          <%= link_to t.name, @t, :class => 'btn' %>
+          <%= link_to t.name, t, :class => 'btn' %>
         <% end %>
       </div>
     </div>

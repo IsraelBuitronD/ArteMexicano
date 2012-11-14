@@ -1,15 +1,12 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <b>Name:</b>
-  <%= @manufacturing_technique.name %>
-</p>
-
-<p>
-  <b>Description:</b>
-  <%= @manufacturing_technique.description %>
-</p>
-
-
+<article>
+  <header>
+    <h1><%= @manufacturing_technique.name %></h1>
+  </header>
+  <section>
+    <div class="well"><%= raw @manufacturing_technique.description %></div>
+  </section>
+</article>
+<% if is_admin %>
 <%= link_to 'Edit', edit_manufacturing_technique_path(@manufacturing_technique) %> |
 <%= link_to 'Back', manufacturing_techniques_path %>
+<% end %>

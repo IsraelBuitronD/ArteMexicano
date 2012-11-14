@@ -10,6 +10,19 @@ en:
         signed_out: Good bay!
   search:
     submit: Search
+  user:
+    login: Login
+    signup: Sign Up
+    logout: Logout
+  crud:
+    new: Add
+    show: Details
+    delete: Delete
+    edit: Edit
+# Handcrafts
+  handcrafts:
+    title: Handcrafts
+# Artists
   artists:
     title: Artists
   artist:

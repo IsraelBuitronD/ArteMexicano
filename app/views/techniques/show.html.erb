@@ -1,15 +1,15 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <b>Name:</b>
-  <%= @technique.name %>
-</p>
-
-<p>
-  <b>Description:</b>
-  <%= @technique.description %>
-</p>
-
-
+<article>
+  <header>
+    <h1><%= @technique.name %></h1>
+  </header>
+  <section>
+    <p><%= raw @technique.description %></p>
+  </section>
+  <% @technique.handcrafts.each do |h| %>
+    <%= link_to image_tag(h.cover_photo.to_s), h %>
+  <% end %>
+</article>
+<% if is_admin %>
 <%= link_to 'Edit', edit_technique_path(@technique) %> |
 <%= link_to 'Back', techniques_path %>
+<% end %>

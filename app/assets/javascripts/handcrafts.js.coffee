@@ -10,16 +10,19 @@ jQuery ->
 $ ->
   $("#handcraft_techniques_tokens").tokenInput "/techniques.json",
     crossDomain: false
+    minLength: 3
     prePopulate: $("#handcraft_techniques_tokens").data("pre")
 
 $ ->
   $("#handcraft_materials_tokens").tokenInput "/materials.json",
     crossDomain: false
+    minLength: 3
     prePopulate: $("#handcraft_materials_tokens").data("pre")
 
 $ ->
   $("#handcraft_manufacturing_techniques_tokens").tokenInput "/manufacturing_techniques.json",
     crossDomain: false
+    minLength: 3
     prePopulate: $("#handcraft_manufacturing_techniques_tokens").data("pre")
 
 $('form').on 'click', '.add_fields', (event) ->

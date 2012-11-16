@@ -18,6 +18,8 @@ body {
   padding-top: 50px;
 }
 
+h1, h2, h3, h4, h5 { margin: 0.5em 0; }
+
 ul.ui-autocomplete {
   position: absolute;
   list-style: none;
@@ -59,3 +61,13 @@ article.list, article.home {
     }
   }
 }
+
+.ellipsis, .ellipsis1, .ellipsis2, .ellipsis3 {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.ellipsis, .ellipsis1 { height: 2em; }
+.ellipsis2 { height: 3em; }
+.ellipsis3 { height: 4em; }

@@ -1,4 +1,11 @@
-<p class="artist_card">
-  <h1><%= @handcraft.artist.name %></h1>
-  <h2><%= @handcraft.artist.business_name %></h2>
-</p>
+<div class="artist-card well well-small clearfix">
+  <div>
+    <div class="span2">
+      <%= image_tag @handcraft.artist.foto.thumb %>
+    </div>
+    <div class="span10">
+      <h5><%= link_to @handcraft.artist.name, @handcraft.artist %> / <small><%= @handcraft.artist.business_name %></small></h5>
+      <div class="ellipsis3"><%= raw @handcraft.artist.biography %></div>
+    </div>
+  </div>
+</div>

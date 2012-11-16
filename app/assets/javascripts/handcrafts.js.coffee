@@ -42,3 +42,7 @@ jQuery ->
     regexp = new RegExp($(this).data('id'), 'g')
     $(this).before($(this).data('fields').replace(regexp, time))
     event.preventDefault()
+
+jQuery ->
+  $('.show').on 'click', '.thumb', (event) ->
+    $('#MainImage img').attr('src', $(this).data('src'))

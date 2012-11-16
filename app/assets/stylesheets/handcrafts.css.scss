@@ -2,3 +2,40 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.show {
+	figure {
+		margin-bottom: 10px;
+		text-align: center;
+		img {
+			height: 300px;
+		}
+	}
+	.cache {
+		img {
+			display: none;
+		}
+	}
+	.thumb {
+		$thumbMargin: 2px;
+		$thumbSize: (90 - $thumbMargin*2);
+		float: left;
+		width: $thumbSize;
+		height: $thumbSize;
+		cursor: pointer;
+		line-height: $thumbSize - $thumbMargin*2;
+		text-align: center;
+		margin: $thumbMargin;
+		opacity: 0.6;
+		&:hover {
+			background: #ccc;
+			box-shadow: 0 0 3px #999, inset 0 0 5px #fcc;
+			opacity: 1;
+		}
+		img {
+			display: inline;
+			max-width: $thumbSize;
+			max-height: $thumbSize;
+			vertical-align: middle;
+		}
+	}
+}

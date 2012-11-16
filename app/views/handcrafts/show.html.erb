@@ -1,72 +1,61 @@
-<section class="left-column">
-  <% if @handcraft.cover_photo %>
-    <!-- Handcraft photo -->
-    <p class="photo">
-      <%= image_tag @handcraft.cover_photo.filename_url.to_s, alt: @handcraft.name %>
-    </p>
-  <% end %>
-
-  <% if @handcraft.description -%>
-    <!-- Handcraft description -->
-    <p class="description">
-      <%= @handcraft.description %>
-    </p>
-  <% end -%>
-
-  <% if @handcraft.weight || @handcraft.width || @handcraft.height -%>
-    <!-- Handcraft dimensions -->
-    <p class="dimensions">
-      <h1>Dimensions</h1>
-      <ul>
-	<li>Weight: <%= @handcraft.weight %></li>
-	<li>Width: <%= @handcraft.width %></li>
-	<li>Height: <%= @handcraft.height %></li>
-      </ul>
-    </p>
-  <% end -%>
-
-  <!-- Handcraft artist card -->
-  <%= render partial: 'handcraft_artist_card' %>
-
-</section>
-
-<aside class="right-column">
-
-  <section class="price_line" >
-    <span class="price" ><%= number_to_currency(@handcraft.price) %></span>
-    <%= button_to 'Add to Cart', line_items_path(handcraft_id: @handcraft) %>
-  </section>
-
-  <% unless @handcraft.materials.empty? %>
-    <section>
-      <header>Materials:</b>
-      <% @handcraft.materials.each do |m| %>
-	<%= m.name %>
-      <% end %>
-    </section>
-  <% end %>
-
-  <% unless @handcraft.manufacturing_techniques.empty? %>
-    <p>
-      <b>Manufacturing_Techniques:</b>
-      <% @handcraft.manufacturing_techniques.each do |m| %>
-	<%= m.name %>
-      <% end %>
-    </p>
-  <% end %>
-
-  <% unless @handcraft.photos.empty? %>
-    <p>
-      <b>Photos:</b>
+<article class="show">
+  <header>
+    <h1><%= @handcraft.name %></h1>
+  </header>
+  <section class="row-fluid">
+    <div class="span5">
+      <figure id="MainImage">
+        <%= image_tag @handcraft.cover_photo.filename_url.to_s, alt: @handcraft.name %>
+      </figure>
+      <div class="well well-small clearfix">
       <% @handcraft.photos.each do |p| %>
-	<%= image_tag p.filename_url(:thumb).to_s  %>
+        <a data-src="<%= p.filename_url.to_s %>" class="thumb">
+          <%= image_tag p.filename_url(:thumb).to_s  %>
+        </a>
       <% end %>
-    </p>
+      </div>
+    </div>
+    <div class="span6 offset1">
+      <div class="well well-small">
+        <strong><%= t 'handcraft.description' %></strong>
+        <%= raw @handcraft.description %>
+        <hr>
+        <dl class="dl-horizontal">
+          <dt><%= t 'handcraft.weight' %></dt>
+          <dd><%= @handcraft.weight %></dd>
+          <dt><%= t 'handcraft.width' %></dt>
+          <dd><%= @handcraft.width %></dd>
+          <dt><%= t 'handcraft.height' %></dt>
+          <dd><%= @handcraft.height %></dd>
+          <dt><%= t 'handcraft.depth' %></dt>
+          <dd><%= @handcraft.depth %></dd>
+        </dl>
+        <hr>
+        <strong><%= t 'handcraft.materials' %></strong>
+        <% @handcraft.materials.each do |m| %>
+          <%= link_to m.name, m %>
+        <% end %>
+        <hr>
+        <strong><%= t 'handcraft.techniques' %></strong>
+        <% @handcraft.techniques.each do |t| %>
+          <%= link_to t.name, t %>
+        <% end %>
+        <hr>
+        <strong><%= t 'handcraft.manufacturing_techniques' %></strong>
+        <% @handcraft.manufacturing_techniques.each do |m| %>
+          <%= link_to m.name, m %>
+        <% end %>
+      </div>
+      <%= render partial: 'handcraft_artist_card' %>
+    </div>
+  </section>
+  <div class="cache">
+  <% @handcraft.photos.each do |p| %>
+    <%= image_tag p.filename_url.to_s  %>
   <% end %>
-
-</aside>
-
-<nav class="footer">
+  </div>
+</article>
+<% if is_admin %>
 <%= link_to 'Edit', edit_handcraft_path(@handcraft) %> |
 <%= link_to 'Back', handcrafts_path %>
-</nav>
+<% end %>

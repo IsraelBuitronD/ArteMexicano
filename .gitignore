@@ -27,6 +27,9 @@ nohup.out
 rerun.txt
 pickle-email-*.html
 
+# .rvmrc file
+.rvmrc.*
+
 # Backup files
 *~
 *bkp
